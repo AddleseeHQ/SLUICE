@@ -34,8 +34,7 @@ This work used SPARQL, a query language that is executed over RDF knowledge grap
 In order to create similar corpora, you need to follow these general steps:
 
 1. We need some graph representation, like RDF or AMR, and a corpus of sentences paired with their graph meaning representations.
-2. There must be some way to align the text's words to the parts of the graph that those words contribute. Here is Figure 1 from [our AMR paper](https://www.amazon.science/publications/understanding-disrupted-sentences-using-underspecified-abstract-meaning-representation).
-[image of an AMR graph colour coded with its corresponding sentence](./amr-alignment.png)
+2. There must be some way to align the text's words to the parts of the graph that those words contribute. Here is Figure 1 from [our AMR paper](https://www.amazon.science/publications/understanding-disrupted-sentences-using-underspecified-abstract-meaning-representation): ![image of an AMR graph colour coded with its corresponding sentence](./amr-alignment.png)
 3. With the RDF in our SPARQL queries, we used the nodes textual labels to fuzzy match with words in the sentence (matching "Beyonce" and "Beyoncé" for example). Otherwise, you can use the output of alignment models - the output of which is shown in the above image.
 4. Once a match is found, we then remove the matching text from the question or sentence, and then underspecify the graph MRL by deleting the nodes and edges that the removed text provided.
 5. The removed content should be replaced with some UNKNOWN tag or variable (we used the ?unknown variable in RDF).
